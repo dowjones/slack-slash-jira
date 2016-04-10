@@ -1,6 +1,7 @@
-var gulp     = require('gulp'),
-    mocha    = require('gulp-mocha'),
-    istanbul = require('gulp-istanbul');
+var gulp = require('gulp');
+var mocha = require('gulp-mocha');
+var istanbul = require('gulp-istanbul');
+var eslint = require('gulp-eslint');
 
 var mochaOpts = {
   reporter: 'mochawesome'
@@ -11,6 +12,13 @@ var istanbulThresholdOpts = {
     global: 90
   }
 };
+
+gulp.task('lint', function () {
+  return gulp.src(['./*.js', 'lib/**/*.js', 'test/**/*.js', '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
 
 gulp.task('test', function (cb) {
   gulp.src(['lib/**/*.js', 'index.js'])

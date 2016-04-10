@@ -1,17 +1,18 @@
-var should = require('should'),
-    sinon = require('sinon'),
-    SlashJira = require('../lib/slash-jira');
+/* global describe, beforeEach, it */
+var should = require('should');
+var sinon = require('sinon');
+var SlashJira = require('../lib/slash-jira');
+// var cb = function (){};
 
 describe('slack-slash-jira', function () {
-  var token = '',
-      req = { body: {text: 'ABC-1234'} },
-      cb = function (){},
-      opts = {
-        jira: {},
-        jiraIssueRegEx: '/(^[a-z]+)(-?)(\\d+$)/i',
-        jiraIssueBaseUrl: ''
-      },
-      slashJira;
+  var token = '';
+  var req = { body: { text: 'ABC-1234' } };
+  var opts = {
+    jira: {},
+    jiraIssueRegEx: '/(^[a-z]+)(-?)(\\d+$)/i',
+    jiraIssueBaseUrl: ''
+  };
+  var slashJira;
 
   beforeEach(function () {
     slashJira = new SlashJira(token, opts);
@@ -25,9 +26,9 @@ describe('slack-slash-jira', function () {
           key: 'ABC-1234',
           fields: {
             summary: 'Summary',
-            issuetype: {name: 'Task'},
-            assignee: {displayName: 'Gruber, Adam'},
-            status: {name: 'Resolved'}
+            issuetype: { name: 'Task' },
+            assignee: { displayName: 'Gruber, Adam' },
+            status: { name: 'Resolved' }
           }
         });
       });
@@ -47,7 +48,7 @@ describe('slack-slash-jira', function () {
       var stub = sinon.stub(slashJira.jira, 'findIssue', function (issue, cb) {
         cb(expectedErrMsg);
       });
-      slashJira.handle(req, function (err, msg) {
+      slashJira.handle(req, function (err) {
         getIssueSpy.calledOnce.should.equal(true);
         should.exist(err);
         expectedErrMsg.should.equal(err);
@@ -70,14 +71,14 @@ describe('slack-slash-jira', function () {
 
     it('returns an error if the issue number is invalid', function (done) {
       var invalidReq = {
-        body: {text: 'ABC'}
+        body: { text: 'ABC' }
       };
       slashJira.handle(invalidReq, function (err) {
         should.exist(err);
         err.should.equal('Uh oh, *ABC* doesn\'t seem to be a valid issue number.');
         done();
       });
-    });  
+    });
   });
 
   describe('_swapDisplayName', function () {
