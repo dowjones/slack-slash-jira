@@ -25,7 +25,7 @@
     "sinon": "^1.14.1"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp"
   },
   "author": "Adam Gruber",
   "repository": {
