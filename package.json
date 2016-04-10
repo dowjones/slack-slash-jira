@@ -1,6 +1,6 @@
 {
   "name": "slack-slash-jira",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Slack slash command handler for Jira. Get quick info on a Jira ticket right from Slack.",
   "keywords": [
     "slack",
@@ -10,8 +10,7 @@
   ],
   "main": "index",
   "dependencies": {
-    "jira": "git+https://github.com/adamgruber/node-jira.git",
-    "lodash": "^3.8.0"
+    "jira": "git+https://github.com/adamgruber/node-jira.git"
   },
   "devDependencies": {
     "eslint": "^2.7.0",
