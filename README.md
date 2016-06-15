@@ -1,4 +1,5 @@
 #slack-slash-jira
+[![npm](https://img.shields.io/npm/v/slack-slash-jira.svg?style=flat-square)](http://www.npmjs.com/package/slack-slash-jira) [![Build Status](https://travis-ci.org/dowjones/slack-slash-jira.svg?branch=master)](https://travis-ci.org/dowjones/slack-slash-jira)
 
 Command handler for [slack-slash][ss] that makes it easy to get quick info on a Jira ticket right from Slack.
 
