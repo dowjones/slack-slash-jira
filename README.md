@@ -1,15 +1,15 @@
-#slack-slash-jira
+# slack-slash-jira
 [![npm](https://img.shields.io/npm/v/slack-slash-jira.svg?style=flat-square)](http://www.npmjs.com/package/slack-slash-jira) [![Build Status](https://travis-ci.org/dowjones/slack-slash-jira.svg?branch=master)](https://travis-ci.org/dowjones/slack-slash-jira)
 
 Command handler for [slack-slash][ss] that makes it easy to get quick info on a Jira ticket right from Slack.
 
-##Usage
+## Usage
 
 Once installed and configured you can type `/jira [ticket]` into Slack and it will respond like this:
 
 ![Slack Response](slack-slash-jira-response.png)
 
-##Installation
+## Installation
 
 1. Configure slash-command integration in Slack. [More info](https://api.slack.com/slash-commands)
 2. Clone and install [slack-slash][ss]
@@ -17,11 +17,11 @@ Once installed and configured you can type `/jira [ticket]` into Slack and it wi
 4. Configure handler in `handlers.json`
 5. Set the environment variable for your Slack token
 
-##Configuration
+## Configuration
 
 In order to use slack-slash-jira as part of [slack-slash][ss], you need to add an entry for it inside `handlers.json`.
 
-####Config Object Properties
+#### Config Object Properties
 
 ```
 command:  @{String} slash command typed into slack, ie. ('/jira')
@@ -43,7 +43,7 @@ options:  @(Object) options to pass to the handler
 ]
 ```
 
-####Options Object Properties
+#### Options Object Properties
 
 slack-slash-jira requires the following options:
 
